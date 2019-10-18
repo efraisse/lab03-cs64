@@ -3,10 +3,10 @@
 #
 #  Data Area - allocate and initialize variables
 .data
-    string1: .ascii "Choose an integer number between 0 and 1000:\n"
-    string2: .ascii "Hello World!\n"
-    string3: .ascii "User chose"
-    string4: .ascii ". Truly a wise choice.\n"
+    string1: .asciiz "Choose an integer number between 0 and 1000:\n"
+    string2: .asciiz "Hello World!\n"
+    string3: .asciiz "User chose "
+    string4: .asciiz ". Truly a wise choice.\n"
 
 #Text Area (i.e. instructions)
 .text
@@ -16,8 +16,8 @@ main:
     syscall
 
     li $v0, 5
-    move $t0, $v0
     syscall
+    move $t0, $v0
 
     li $v0, 4
     la $a0, string2
@@ -28,9 +28,9 @@ main:
     syscall
 
     li $v0, 1
-    syscall
     move $a0, $t0
-    
+    syscall
+
     li $v0, 4
     la $a0, string4
     syscall
